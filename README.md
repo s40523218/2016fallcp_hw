@@ -1,8 +1,7 @@
-2016fllcp_hw
+2016fallcp_hw
 
-CP 乙班的練習倉儲
+https://s40523218.github.io/2016fallcp_hw
 
-http://s40523218.github.io/2016fllcp_hw
+https://s40523218.github.io/2016fallcp_hw/blog
 
-http://s40523218.github.io/2016fllcp_hw/blog
 1
