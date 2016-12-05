@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall CPB 課程網誌 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/misc.atom.xml" rel="self"></link><id>./</id><updated>2016-11-28T12:00:00+08:00</updated><entry><title>w12 Brython 繪圖範例</title><link href="./w12-brython-hui-tu-fan-li.html" rel="alternate"></link><published>2016-11-28T12:00:00+08:00</published><updated>2016-11-28T12:00:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-11-28:./w12-brython-hui-tu-fan-li.html</id><summary type="html">&lt;p&gt;Brython 繪圖&lt;/p&gt;
-
-
-&lt;p&gt;繪圖流程,導入資料庫,啟動,然後引用各種模組開始繪圖&lt;/p&gt;
-&lt;!-- 導入 Brython 標準程式庫 --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall CPB 課程網誌 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/misc.atom.xml" rel="self"></link><id>./</id><updated>2016-12-05T12:00:00+08:00</updated><entry><title>w13</title><link href="./w13.html" rel="alternate"></link><published>2016-12-05T12:00:00+08:00</published><updated>2016-12-05T12:00:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-12-05:./w13.html</id><summary type="html">&lt;!-- 導入 Brython 標準程式庫 --&gt;
 
 &lt;script type="text/javascript" 
     src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js"&gt;
@@ -19,7 +15,7 @@ brython(1);
 
 &lt;!-- 以下實際利用  Brython 畫圖 --&gt;
 
-&lt;canvas id="chord1" width="600" height="400"&gt;&lt;/canvas&gt;
+&lt;canvas id="chord1" width="1000" height="1000"&gt;&lt;/canvas&gt;
 
 &lt;script type="text/python3"&gt;
 from browser import document as doc
@@ -28,33 +24,80 @@ import math
 canvas = doc["chord1"]
 ctx = canvas.getContext("2d")
 
-# 水平線
-for i in range(5):
-    ctx.beginPath()
-# 設定線的寬度為 1 個單位
-    if i == 0:
-        ctx.lineWidth = 7
-    else:
+def background(x, y, xinc, yinc, xnum, ynum, ctx):
+    # 水平線
+    for i in range(ynum+1):
+        ctx.beginPath()
+    # 設定線的寬度為 1 個單位
+        if i == 0:
+            ctx.lineWidth = 7
+        else:
+            ctx.lineWidth = 1
+        ctx.moveTo(x-1, y+i*yinc)
+        ctx.lineTo(x+xnum*xinc+1, y+i*yinc)
+        # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
+        ctx.strokeStyle = "blue"
+        ctx.stroke()
+        ctx.closePath()
+
+    # 垂直線
+    for i in range(xnum+1):
+        ctx.beginPath()
+    # 設定線的寬度為 1 個單位
         ctx.lineWidth = 1
-    ctx.moveTo(99, 100+i*30)
-    ctx.lineTo(201, 100+i*30)
-    # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
-    ctx.strokeStyle = "blue"
+        ctx.moveTo(x+i*xinc, y)
+        ctx.lineTo(x+i*xinc, y+ynum*yinc)
+        # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
+        ctx.strokeStyle = "blue"
+        ctx.stroke()
+        ctx.closePath()
+
+w = 20
+h = 30
+background(100, 10, w, h, 5, 19, ctx)
+
+# 1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19
+def canvasText(x, y, fontSize, string, sup, sub, color, ctx):
+    # 標定各弦音符號, 以及把位編號
+    ctx.beginPath()
+    ctx.fillStyle = color
+    ctx.strokeStyle = color
+    #ctx.font = "20px Arial"
+    ctx.font = str(fontSize)+ "px Arial"
+    ctx.fillText(string, x, y)
+    ctx.font = str(fontSize-8)+ "px Arial"
+    if sup != "":
+        ctx.fillText(sup, x+fontSize/1.6, y-fontSize/2)
+    if sub != "":
+        ctx.fillText(sup, x+fontSize/1.6, y)
+    ctx.fill()
     ctx.stroke()
     ctx.closePath()
 
-# 垂直線
-for i in range(6):
-    ctx.beginPath()
-# 設定線的寬度為 1 個單位
-    ctx.lineWidth = 1
-    ctx.moveTo(100+i*20, 100)
-    ctx.lineTo(100+i*20, 220)
-    # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
-    ctx.strokeStyle = "blue"
-    ctx.stroke()
-    ctx.closePath()
-ctx.closePath()
+w = 20
+h = 30
+mylist = ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","16","17","18","19"]
+num = 0
+for s in mylist:
+    #canvasText(70,  32.5, 20, "A", "b", "", "black", ctx)
+    canvasText(70,  32.5+num*h, 20, s, "", "", "black", ctx)
+    num = num + 1
+&lt;/script&gt;</summary><category term="Brython"></category></entry><entry><title>w12 Brython 繪圖範例</title><link href="./w12-brython-hui-tu-fan-li.html" rel="alternate"></link><published>2016-11-28T12:00:00+08:00</published><updated>2016-11-28T12:00:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-11-28:./w12-brython-hui-tu-fan-li.html</id><summary type="html">&lt;p&gt;Brython 繪圖&lt;/p&gt;
+
+
+&lt;p&gt;繪圖流程,導入資料庫,啟動,然後引用各種模組開始繪圖&lt;/p&gt;
+&lt;!-- 導入 Brython 標準程式庫 --&gt;
+
+&lt;script type="text/javascript" 
+    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js"&gt;
+&lt;/script&gt;
+
+&lt;!-- 啟動 Brython --&gt;
+
+&lt;script&gt;
+window.onload=function(){
+brython(1);
+}
 &lt;/script&gt;
 
 &lt;!-- 以下實際利用  Brython 畫圖 --&gt;
@@ -95,35 +138,10 @@ def background(x, y, xinc, yinc, xnum, ynum, ctx):
         ctx.strokeStyle = "blue"
         ctx.stroke()
         ctx.closePath()
-    ctx.closePath()    
 
- def ball(x,y,w,h,wcoord,hcoord,r,color,ctx):
-      bx= x+(wcoord-1)*w
-      by= y+(hcoord-1)*h+h/2
-      if w&lt;h:
-          r2=w/2 - 2
-      else:
-          r2=h/2 - 2    
-      ctx.beginPath()
-      #ctx.fillStyle = 'black'
-      ctx.fillStyle = color
-      #ctx.strokeStyle = "black"
-      ctx.strokeStyle = color
-     #ctx.arc(180, 145, 9, 0, 2*math.pi, False)
-      ctx.arc(bx, by, r2, 0, 2*math.pi, False)
-      ctx.fill()
-      ctx.stroke()
-      ctx.closePath()
-
- x=300
- y=200
- w=20
- h=30
-background(x, y, w, h, 5, 4, ctx)
-for i in range(6):
-    for j in range(4):
-        ball(x,y,w,h,i+1,j+1,"black",ctx)
-#ball(80,60,9,"red",ctx)
+w = 20
+h = 30
+background(100, 100, w, h, 5, 5, ctx)
 &lt;/script&gt;</summary><category term="使用導引"></category><category term="創造力"></category><category term="表達能力"></category><category term="協同設計"></category></entry><entry><title>w11 Brython 繪圖範例</title><link href="./w11-brython-hui-tu-fan-li.html" rel="alternate"></link><published>2016-11-21T12:00:00+08:00</published><updated>2016-11-21T12:00:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-11-21:./w11-brython-hui-tu-fan-li.html</id><summary type="html">&lt;p&gt;Brython 繪圖&lt;/p&gt;
 
 
