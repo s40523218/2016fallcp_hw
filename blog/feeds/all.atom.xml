@@ -210,7 +210,7 @@ background(100, 100, w, h, 5, 18, ctx)
       #  ball(x, y, w, h, i+1, j+1, 'black', ctx)
 #ball(x, y, w, h, 1, 4, 'red', ctx)
 #ball(300, 300, 30, 20, 1, 1, 9, 'black', ctx)
-&lt;/script&gt;</summary><category term="使用導引"></category></entry><entry><title>W11</title><link href="./w11.html" rel="alternate"></link><published>2016-11-28T12:00:00+08:00</published><updated>2016-11-28T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2016-11-28:./w11.html</id><summary type="html">&lt;p&gt;Brython 繪圖&lt;/p&gt;
+&lt;/script&gt;</summary><category term="使用導引"></category></entry><entry><title>W14週練習</title><link href="./w14zhou-lian-xi.html" rel="alternate"></link><published>2016-12-05T12:00:00+08:00</published><updated>2016-12-05T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2016-12-05:./w14zhou-lian-xi.html</id><summary type="html">&lt;p&gt;第14週開始練習&lt;/p&gt;</summary><category term="使用導引"></category></entry><entry><title>W11</title><link href="./w11.html" rel="alternate"></link><published>2016-11-28T12:00:00+08:00</published><updated>2016-11-28T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2016-11-28:./w11.html</id><summary type="html">&lt;p&gt;Brython 繪圖&lt;/p&gt;
 
 
 &lt;p&gt;畫線練習&lt;/p&gt;
