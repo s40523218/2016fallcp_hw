@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>w12 - 2016Fall CPB 課程網誌 (虎尾科大MDE)</title>
+    <title>W15 - 2016Fall CPB 課程網誌 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,24 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="./w12.html">
+<link rel="canonical" href="./w15.html">
 
-        <meta name="author" content="yen" />
-        <meta name="keywords" content="使用導引,創造力,表達能力,協同設計" />
-        <meta name="description" content="Brython 繪圖" />
+        <meta name="author" content="40523218" />
+        <meta name="keywords" content="影片重點整理" />
+        <meta name="description" content="cpa_W14-1影片重點整理和心得 cpa_W14-1影片" />
 
         <meta property="og:site_name" content="2016Fall CPB 課程網誌 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="w12"/>
-        <meta property="og:url" content="./w12.html"/>
-        <meta property="og:description" content="Brython 繪圖"/>
-        <meta property="article:published_time" content="2016-11-28" />
+        <meta property="og:title" content="W15"/>
+        <meta property="og:url" content="./w15.html"/>
+        <meta property="og:description" content="cpa_W14-1影片重點整理和心得 cpa_W14-1影片"/>
+        <meta property="article:published_time" content="2016-12-19" />
             <meta property="article:section" content="Misc" />
-            <meta property="article:tag" content="使用導引" />
-            <meta property="article:tag" content="創造力" />
-            <meta property="article:tag" content="表達能力" />
-            <meta property="article:tag" content="協同設計" />
-            <meta property="article:author" content="yen" />
+            <meta property="article:tag" content="影片重點整理" />
+            <meta property="article:author" content="40523218" />
 
 
     <!-- Bootstrap -->
@@ -290,10 +287,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./w12.html"
+                    <a href="./w15.html"
                        rel="bookmark"
-                       title="Permalink to w12">
-                        w12
+                       title="Permalink to W15">
+                        W15
                     </a>
                 </h1>
             </header>
@@ -303,85 +300,34 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-11-28T12:00:00+08:00"> 週一 28 十一月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-12-19T12:00:00+08:00"> 週一 19 十二月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="./author/yen.html"><i class="fa fa-user"></i> yen</a>
+            <a href="./author/40523218.html"><i class="fa fa-user"></i> 40523218</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/shi-yong-dao-yin.html">使用導引</a>
-        /
-	<a href="./tag/chuang-zao-li.html">創造力</a>
-        /
-	<a href="./tag/biao-da-neng-li.html">表達能力</a>
-        /
-	<a href="./tag/xie-tong-she-ji.html">協同設計</a>
+	<a href="./tag/ying-pian-zhong-dian-zheng-li.html">影片重點整理</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Brython 繪圖</p>
+                <p>cpa_W14-1影片重點整理和心得</p>
+<p><a href="https://vimeo.com/195916522" style=color:blue;">cpa_W14-1影片</a></p>
 
 
-<p>繪圖流程,導入資料庫,啟動,然後引用各種模組開始繪圖</p>
-<!-- 導入 Brython 標準程式庫 -->
-
-<script type="text/javascript" 
-    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js">
-</script>
-
-<!-- 啟動 Brython -->
-
-<script>
-window.onload=function(){
-brython(1);
-}
-</script>
-
-<!-- 以下實際利用  Brython 畫圖 -->
-
-<canvas id="chord1" width="600" height="400"></canvas>
-
-<script type="text/python3">
-from browser import document as doc
-import math
-# 準備繪圖畫布
-canvas = doc["chord1"]
-ctx = canvas.getContext("2d")
-
-def background(x, y, xinc, yinc, xnum, ynum, ctx):
-    # 水平線
-    for i in range(ynum+1):
-        ctx.beginPath()
-    # 設定線的寬度為 1 個單位
-        if i == 0:
-            ctx.lineWidth = 7
-        else:
-            ctx.lineWidth = 1
-        ctx.moveTo(x-1, y+i*yinc)
-        ctx.lineTo(x+xnum*xinc+1, y+i*yinc)
-        # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
-        ctx.strokeStyle = "blue"
-        ctx.stroke()
-        ctx.closePath()
-
-    # 垂直線
-    for i in range(xnum+1):
-        ctx.beginPath()
-    # 設定線的寬度為 1 個單位
-        ctx.lineWidth = 1
-        ctx.moveTo(x+i*xinc, y)
-        ctx.lineTo(x+i*xinc, y+ynum*yinc)
-        # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
-        ctx.strokeStyle = "blue"
-        ctx.stroke()
-        ctx.closePath()
-
-w = 20
-h = 30
-background(100, 100, w, h, 5, 5, ctx)
-</script>
+<p>leo 檔案 settings 節點用法?</p>
+<p>把它複製下來然後丟到特定的檔案後,關掉再開就好了</p>
+<p>ctrl + u (upper) 功效? 還有那些相關快捷鍵?</p>
+<p>向上移動</p>
+<p>ctrl+d 向下移動,,ctrl+l 向左移動,ctrl+i 新增內容, ctrl+B是執行,crtl+r向右移動或是將現在點選的東西變成上面的子節點</p>
+<p>settings的用意是設定字元</p>
+<p>path是在說他的子節點會儲存在哪個資料夾</p>
+<p>local_publishconf.py是設定檔之一,會引用到pelicanconf.py的設定檔上</p>
+<p>button pelican-blog是主要進行轉檔用的</p>
+<p>button https server這個是建立近端的,可以在近端檢視遠端的</p>
+<p>如何複製或者搬動 leo 的節點?</p>
+<p>在要複製的節點上按滑鼠右鍵,然後點選copynode,再到你要貼上的地方按滑鼠右鍵,然後點選pastenode,要移動節點的話可以使用crtl+u或是crtl+d</p>
             </div>
             <!-- /.entry-content -->
         </article>

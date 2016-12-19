@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall CPB 課程網誌 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/misc.atom.xml" rel="self"></link><id>./</id><updated>2016-12-12T12:00:00+08:00</updated><entry><title>W14週練習</title><link href="./w14zhou-lian-xi.html" rel="alternate"></link><published>2016-12-12T12:00:00+08:00</published><updated>2016-12-12T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2016-12-12:./w14zhou-lian-xi.html</id><summary type="html">&lt;p&gt;以下為第十四週開始的城市練習,要利用 &lt;a href="http://mde.tw/2016fallcp/course/Python3Programs.txt"&gt;http://mde.tw/2016fallcp/course/Python3Programs.txt&lt;/a&gt; 要整理Brython 的用法.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall CPB 課程網誌 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/misc.atom.xml" rel="self"></link><id>./</id><updated>2016-12-19T12:00:00+08:00</updated><entry><title>W15</title><link href="./w15.html" rel="alternate"></link><published>2016-12-19T12:00:00+08:00</published><updated>2016-12-19T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2016-12-19:./w15.html</id><summary type="html">&lt;p&gt;cpa_W14-1影片重點整理和心得&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://vimeo.com/195916522" style=color:blue;"&gt;cpa_W14-1影片&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;p&gt;leo 檔案 settings 節點用法?&lt;/p&gt;
+&lt;p&gt;把它複製下來然後丟到特定的檔案後,關掉再開就好了&lt;/p&gt;
+&lt;p&gt;ctrl + u (upper) 功效? 還有那些相關快捷鍵?&lt;/p&gt;
+&lt;p&gt;向上移動&lt;/p&gt;
+&lt;p&gt;ctrl+d 向下移動,,ctrl+l 向左移動,ctrl+i 新增內容, ctrl+B是執行,crtl+r向右移動或是將現在點選的東西變成上面的子節點&lt;/p&gt;
+&lt;p&gt;settings的用意是設定字元&lt;/p&gt;
+&lt;p&gt;path是在說他的子節點會儲存在哪個資料夾&lt;/p&gt;
+&lt;p&gt;local_publishconf.py是設定檔之一,會引用到pelicanconf.py的設定檔上&lt;/p&gt;
+&lt;p&gt;button pelican-blog是主要進行轉檔用的&lt;/p&gt;
+&lt;p&gt;button https server這個是建立近端的,可以在近端檢視遠端的&lt;/p&gt;
+&lt;p&gt;如何複製或者搬動 leo 的節點?&lt;/p&gt;
+&lt;p&gt;在要複製的節點上按滑鼠右鍵,然後點選copynode,再到你要貼上的地方按滑鼠右鍵,然後點選pastenode,要移動節點的話可以使用crtl+u或是crtl+d&lt;/p&gt;</summary><category term="影片重點整理"></category></entry><entry><title>W14週練習</title><link href="./w14zhou-lian-xi.html" rel="alternate"></link><published>2016-12-12T12:00:00+08:00</published><updated>2016-12-12T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2016-12-12:./w14zhou-lian-xi.html</id><summary type="html">&lt;p&gt;以下為第十四週開始的城市練習,要利用 &lt;a href="http://mde.tw/2016fallcp/course/Python3Programs.txt"&gt;http://mde.tw/2016fallcp/course/Python3Programs.txt&lt;/a&gt; 要整理Brython 的用法.
 &lt;/p&gt;
 &lt;!-- 導入 Brython 標準程式庫 --&gt;
 
@@ -36,7 +51,48 @@ mynum = input("要印幾次?")
 for i in range(int(mynum)):
     #container&lt;="W14練習-2"+html.BR()
     container&lt;=mystring+html.BR()
-&lt;/script&gt;</summary><category term="每週練習"></category></entry><entry><title>W13</title><link href="./w13.html" rel="alternate"></link><published>2016-12-05T12:00:00+08:00</published><updated>2016-12-05T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2016-12-05:./w13.html</id><summary type="html">&lt;p&gt;Brython 繪圖&lt;/p&gt;
+&lt;/script&gt;
+
+&lt;p&gt;上述繪圖的程式碼:&lt;/p&gt;
+
+&lt;!-- 導入 Brython 標準程式庫 --&gt;
+
+&lt;script type="text/javascript" 
+    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js"&gt;
+&lt;/script&gt;
+
+&lt;!-- 啟動 Brython --&gt;
+
+&lt;script&gt;
+window.onload=function(){
+brython(1);
+}
+&lt;/script&gt;
+
+&lt;div id ="ex1"&gt;&lt;/div&gt;
+
+&lt;script type="text/python3"&gt;
+from browser import document as doc
+container = doc['ex1']
+
+container&lt;="W14練習"
+&lt;/script&gt;
+
+&lt;div id ="ex2"&gt;&lt;/div&gt;
+
+&lt;script type="text/python3"&gt;
+from browser import document as doc
+from browser import html
+container = doc['ex2']
+mystring = input("要印出什麼字串?")
+mynum = input("要印幾次?")
+
+for i in range(int(mynum)):
+    #container&lt;="W14練習-2"+html.BR()
+    container&lt;=mystring+html.BR()
+&lt;/script&gt;
+
+&lt;/pre&gt;</summary><category term="每週練習"></category></entry><entry><title>W13</title><link href="./w13.html" rel="alternate"></link><published>2016-12-05T12:00:00+08:00</published><updated>2016-12-05T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2016-12-05:./w13.html</id><summary type="html">&lt;p&gt;Brython 繪圖&lt;/p&gt;
 
 
 &lt;p&gt;畫線練習&lt;/p&gt;
