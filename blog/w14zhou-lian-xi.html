@@ -353,6 +353,7 @@ for i in range(int(mynum)):
 
 <p>上述繪圖的程式碼:</p>
 
+<pre class="brush: python">
 <!-- 導入 Brython 標準程式庫 -->
 
 <script type="text/javascript" 
@@ -360,15 +361,14 @@ for i in range(int(mynum)):
 </script>
 
 <!-- 啟動 Brython -->
-
 <script>
 window.onload=function(){
 brython(1);
 }
 </script>
 
-<div id ="ex1"></div>
 
+<div id ="ex1"></div>
 <script type="text/python3">
 from browser import document as doc
 container = doc['ex1']
@@ -376,8 +376,8 @@ container = doc['ex1']
 container<="W14練習"
 </script>
 
-<div id ="ex2"></div>
 
+<div id ="ex2"></div>
 <script type="text/python3">
 from browser import document as doc
 from browser import html
@@ -389,7 +389,6 @@ for i in range(int(mynum)):
     #container<="W14練習-2"+html.BR()
     container<=mystring+html.BR()
 </script>
-
 </pre>
             </div>
             <!-- /.entry-content -->
