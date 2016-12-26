@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>w12 - 2016Fall CPB 課程網誌 (虎尾科大MDE)</title>
+    <title>W16 - 2016Fall CPB 課程網誌 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,24 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="./w12.html">
+<link rel="canonical" href="./w16.html">
 
-        <meta name="author" content="yen" />
-        <meta name="keywords" content="使用導引,創造力,表達能力,協同設計" />
-        <meta name="description" content="Brython 繪圖" />
+        <meta name="author" content="40523218" />
+        <meta name="keywords" content="W16週練習" />
+        <meta name="description" content="W16" />
 
         <meta property="og:site_name" content="2016Fall CPB 課程網誌 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="w12"/>
-        <meta property="og:url" content="./w12.html"/>
-        <meta property="og:description" content="Brython 繪圖"/>
-        <meta property="article:published_time" content="2016-11-28" />
+        <meta property="og:title" content="W16"/>
+        <meta property="og:url" content="./w16.html"/>
+        <meta property="og:description" content="W16"/>
+        <meta property="article:published_time" content="2016-12-26" />
             <meta property="article:section" content="Misc" />
-            <meta property="article:tag" content="使用導引" />
-            <meta property="article:tag" content="創造力" />
-            <meta property="article:tag" content="表達能力" />
-            <meta property="article:tag" content="協同設計" />
-            <meta property="article:author" content="yen" />
+            <meta property="article:tag" content="W16週練習" />
+            <meta property="article:author" content="40523218" />
 
 
     <!-- Bootstrap -->
@@ -290,10 +287,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./w12.html"
+                    <a href="./w16.html"
                        rel="bookmark"
-                       title="Permalink to w12">
-                        w12
+                       title="Permalink to W16">
+                        W16
                     </a>
                 </h1>
             </header>
@@ -303,28 +300,21 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-11-28T12:00:00+08:00"> 週一 28 十一月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-12-26T12:00:00+08:00"> 週一 26 十二月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="./author/yen.html"><i class="fa fa-user"></i> yen</a>
+            <a href="./author/40523218.html"><i class="fa fa-user"></i> 40523218</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/shi-yong-dao-yin.html">使用導引</a>
-        /
-	<a href="./tag/chuang-zao-li.html">創造力</a>
-        /
-	<a href="./tag/biao-da-neng-li.html">表達能力</a>
-        /
-	<a href="./tag/xie-tong-she-ji.html">協同設計</a>
+	<a href="./tag/w16zhou-lian-xi.html">W16週練習</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Brython 繪圖</p>
+                <p>W16</p>
 
 
-<p>繪圖流程,導入資料庫,啟動,然後引用各種模組開始繪圖</p>
 <!-- 導入 Brython 標準程式庫 -->
 
 <script type="text/javascript" 
@@ -341,124 +331,31 @@ brython(1);
 
 <!-- 以下實際利用  Brython 畫圖 -->
 
-<canvas id="chord1" width="600" height="400"></canvas>
+<div id="con"></div>
 
 <script type="text/python3">
-from browser import document as doc
-import math
-# 準備繪圖畫布
-canvas = doc["chord1"]
-ctx = canvas.getContext("2d")
+from browser import alert
+from browser import document
+from browser import html
+import random
+#print("test")
+#alert("test")
+con1=document["con"]
+標準答案 = random.randint(1, 2)
+con1<=str(標準答案)
+'''
+try:
+     for i in range(1):
+         #con1<="test"+"<br/>"
+        yourInput=int(input("請輸入一個整數!"))
+        #con1<="test"+html.BR()
+        output=yourInput+1
+        con1<="你輸入的整數加上1之後,為"+str(output)
+except:
+    con1<="拜託請輸入整數!"
+'''
 
-def background(x, y, xinc, yinc, xnum, ynum, ctx):
-    # 水平線
-    for i in range(ynum+1):
-        ctx.beginPath()
-    # 設定線的寬度為 1 個單位
-        if i == 0:
-            ctx.lineWidth = 7
-        else:
-            ctx.lineWidth = 1
-        ctx.moveTo(x-1, y+i*yinc)
-        ctx.lineTo(x+xnum*xinc+1, y+i*yinc)
-        # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
-        ctx.strokeStyle = "blue"
-        ctx.stroke()
-        ctx.closePath()
-
-    # 垂直線
-    for i in range(xnum+1):
-        ctx.beginPath()
-    # 設定線的寬度為 1 個單位
-        ctx.lineWidth = 1
-        ctx.moveTo(x+i*xinc, y)
-        ctx.lineTo(x+i*xinc, y+ynum*yinc)
-        # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
-        ctx.strokeStyle = "blue"
-        ctx.stroke()
-        ctx.closePath()
-
-w = 20
-h = 30
-background(100, 100, w, h, 5, 5, ctx)
 </script>
-
-<p>上述繪圖的程式碼:</p>
-
-<pre class="brush: python">
-<!-- 導入 Brython 標準程式庫 -->
-
-<script type="text/javascript" 
-    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js">
-</script>
-
-<!-- 啟動 Brython -->
-<script>
-window.onload=function(){
-brython(1);
-}
-</script>
-
-<!-- 以下實際利用  Brython 畫圖 -->
-<canvas id="chord1" width="600" height="400"></canvas>
-<script type="text/python3">
-from browser import document as doc
-import math
-# 準備繪圖畫布
-canvas = doc["chord1"]
-ctx = canvas.getContext("2d")
-
-def background(x, y, xinc, yinc, xnum, ynum, ctx):
-    # 水平線
-    for i in range(ynum+1):
-        ctx.beginPath()
-    # 設定線的寬度為 1 個單位
-        if i == 0:
-            ctx.lineWidth = 7
-        else:
-            ctx.lineWidth = 1
-        ctx.moveTo(x-1, y+i*yinc)
-        ctx.lineTo(x+xnum*xinc+1, y+i*yinc)
-        # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
-        ctx.strokeStyle = "blue"
-        ctx.stroke()
-        ctx.closePath()
-
-    # 垂直線
-    for i in range(xnum+1):
-        ctx.beginPath()
-    # 設定線的寬度為 1 個單位
-        ctx.lineWidth = 1
-        ctx.moveTo(x+i*xinc, y)
-        ctx.lineTo(x+i*xinc, y+ynum*yinc)
-        # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
-        ctx.strokeStyle = "blue"
-        ctx.stroke()
-        ctx.closePath()
-
-def canvasText(x, y, fontSize, string, sup, sub, color, ctx):
-    # 標定各弦音符號, 以及把位編號
-    ctx.beginPath()
-    ctx.fillStyle = color
-    ctx.strokeStyle = color
-    #ctx.font = "20px Arial"
-    ctx.font = str(fontSize)+ "px Arial"
-    ctx.fillText(string, x, y)
-    ctx.font = str(fontSize-8)+ "px Arial"
-    if sup != "":
-        ctx.fillText(sup, x+fontSize/1.6, y-fontSize/2)
-    if sub != "":
-        ctx.fillText(sup, x+fontSize/1.6, y)
-    ctx.fill()
-    ctx.stroke()
-    ctx.closePath()
-
-w = 20
-h = 30
-background(100, 100, w, h, 5, 5, ctx)
-canvasText(100,  80, 20, "A", "b", "", "black", ctx)
-</script>
-</pre>
             </div>
             <!-- /.entry-content -->
         </article>
