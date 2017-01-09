@@ -1,71 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall CPB 課程網誌 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/misc.atom.xml" rel="self"></link><id>./</id><updated>2017-01-09T12:00:00+08:00</updated><entry><title>2016fallcp期末考週</title><link href="./2016fallcpqi-mo-kao-zhou.html" rel="alternate"></link><published>2017-01-09T12:00:00+08:00</published><updated>2017-01-09T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2017-01-09:./2016fallcpqi-mo-kao-zhou.html</id><summary type="html">&lt;p&gt;&lt;/h4&gt;2016fallcp期末考週&lt;/h4&gt;
-&lt;/p&gt;
-&lt;h1&gt;W15週心得與程式範例&lt;/h1&gt;
-&lt;h1&gt;W16週心得與程式範例&lt;/h1&gt;
-&lt;p&gt;&lt;p&gt;程式範例:&lt;/p&gt;
-&lt;pre class="brush: python"&gt;
-&lt;!-- 導入 Brython 標準程式庫 --&gt;&lt;/p&gt;
-&lt;script type="text/javascript" 
-    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js"&gt;
-&lt;/script&gt;
-
-&lt;!-- 啟動 Brython --&gt;
-
-&lt;script&gt;
-window.onload=function(){
-brython(1);
-}
-&lt;/script&gt;
-
-&lt;!-- 以下實際利用  Brython 畫圖 --&gt;
-
-&lt;div id="con"&gt;&lt;/div&gt;
-
-&lt;script type="text/python3"&gt;
-from browser import alert
-from browser import document
-from browser import html
-import random
-#print("test")
-#alert("test")
-con1=document["con"]
-標準答案 = random.randint(1, 100)
-你猜的數字 = int(input("請輸入您所猜的整數:"))
-猜測次數 = 1
-while 標準答案 != 你猜的數字:
-    if 標準答案 &lt; 你猜的數字:
-        print("太大了，再猜一次 :)加油")
-    else:
-        print("太小了，再猜一次 :)加油")
-    你猜的數字 = int(input("請輸入您所猜的整數:"))
-    猜測次數 += 1
-
-print("猜對了！總共猜了", 猜測次數, "次")
-
-'''
-'''
-con1&lt;=str(標準答案)
-
-'''
-try:
-     for i in range(1):
-         #con1&lt;="test"+"&lt;br/&gt;"
-        yourInput=int(input("請輸入一個整數!"))
-        #con1&lt;="test"+html.BR()
-        output=yourInput+1
-        con1&lt;="你輸入的整數加上1之後,為"+str(output)
-except:
-    con1&lt;="拜託請輸入整數!"
-'''  
-def b1(e):
-     alert("click")
-document["b1"].bind("click", b1)
-&lt;/script&gt;
-
-&lt;p&gt;&lt;button id ="b1"&gt;玩猜數字遊戲&lt;/button&gt;
-&lt;/pre&gt;&lt;/p&gt;
-&lt;h1&gt;W17週心得與程式範例&lt;/h1&gt;</summary><category term="W16週練習"></category></entry><entry><title>W16</title><link href="./w16.html" rel="alternate"></link><published>2016-12-26T12:00:00+08:00</published><updated>2016-12-26T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2016-12-26:./w16.html</id><summary type="html">&lt;p&gt;W16&lt;/p&gt;
+W17 週心得與程式範例:&lt;/p&gt;
+&lt;p&gt;W16 週心得與程式範例:&lt;/p&gt;
+&lt;p&gt;W15 週心得與程式範例:&lt;/p&gt;
+&lt;p&gt;其中各週心得請嵌入個人現場操作 vimeo 影片 (必須是 2017-01-09 : 13:20 之後上傳)&lt;/p&gt;
+&lt;p&gt;以 pre 附上練習的範例執行, 以及課程影片的摘要
+&lt;/p&gt;</summary><category term="W16週練習"></category></entry><entry><title>W16</title><link href="./w16.html" rel="alternate"></link><published>2016-12-26T12:00:00+08:00</published><updated>2016-12-26T12:00:00+08:00</updated><author><name>40523218</name></author><id>tag:,2016-12-26:./w16.html</id><summary type="html">&lt;p&gt;W16&lt;/p&gt;
 
 
 &lt;!-- 導入 Brython 標準程式庫 --&gt;
